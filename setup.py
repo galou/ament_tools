@@ -9,13 +9,16 @@ if sys.version_info < (3, 5):
     print('ament requires Python 3.5 or higher.', file=sys.stderr)
     sys.exit(1)
 
+package_name = 'ament_tools'
+
 setup(
-    name='ament_tools',
+    name=package_name,
     version='0.5.0',
     packages=find_packages(exclude=['test', 'test.*']),
     install_requires=['ament-package', 'osrf_pycommon'],
     zip_safe=False,
     data_files=[
+        ('share/' + package_name, ['package.xml']),
         ('share/ament_tools/environment',
             [
                 'completion/ament-completion.bash',
